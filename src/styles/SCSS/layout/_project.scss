@@ -1,0 +1,153 @@
+.project{
+    min-height: 88vh;
+    padding: 3rem 0;
+    font-family: "Roboto", sans-serif;
+    h1{
+        color: $thered-color;
+        font-size: 1.7rem;
+        margin: 2rem 0;
+    }
+    .info , .note{
+        margin: 2rem 0;
+        border-bottom: 1px solid #8892b030;
+        padding-bottom: 2rem;
+        h3{
+            color: $thered-color;
+            font-size: 1.7rem;
+            margin: 1rem 0;
+        }
+        p , h4{
+            color: $forth-color;
+            font-size: 1.2rem;
+            line-height: 1.9rem;
+        }
+        a{
+            color: $seconed-color;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            li{
+                color: $forth-color;
+                text-transform: capitalize;
+                position: relative;
+                &::before{
+                    content: "▹";
+                    color: $seconed-color;
+                    margin-right: 0.4rem;
+                }
+            }
+        }
+    }
+    .note{
+        ul{
+            li{
+
+                text-transform: none;
+                color: $seconed-color;
+            }
+        }
+    }
+    .code-repo{
+        ul{
+            gap: 1rem;
+            li{
+                display: flex;
+                align-items: center;
+                span{
+                    width: 100px;
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    .link{
+        a{
+            display: block;
+        }
+    }
+
+}
+
+
+.slider-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    max-width: 769px;
+    margin: auto;
+    border-radius: 0.5rem;
+    background-color: $fith-color;
+    padding-bottom: 30px;
+    margin-bottom: 2rem;
+    .img-prev{
+        width: 100%;
+        height: fit-content;
+        img{
+            width: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .slick-dots{
+            li{
+                button{
+                    &::before{
+                        color: $thered-color ; 
+                        font-size: 10px;
+                    }
+                }
+                &.slick-active{
+                    button{
+                        &::before{
+                            color: $seconed-color ;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@include tablets {
+    .project{
+        padding: 3rem 1.5rem;
+        .info , .note{
+            p , h4{
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+
+    .slider-container{
+        width: 90%;
+    }
+}
+
+@include mobile {
+    .project{
+        padding: 3rem 0.7rem;
+        width: 100%;
+        .info , .note{
+            p , h4{
+                font-size: 1.1rem;
+            }
+        }
+    }
+    .slider-container{
+        width: 90%;
+
+        .slick-next ,.slick-prev{
+            display: none;
+            &::before{
+                display: none;
+            }
+        }
+    }
+}

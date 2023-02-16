@@ -1,0 +1,53 @@
+footer{
+    margin-top: 10rem;
+    width: 100%;
+    align-items: center;
+    font-family: 'Grape Nuts', cursive;
+    box-shadow: 0px 5px 25px -5px rgb(0 0 0 / 62%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    .footer-container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1024px;
+        margin: auto;
+        ul{
+            list-style: none;
+            display: flex;
+            font-size: 1.2rem;
+            width: fit-content;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 1rem;
+        }
+        h1{
+            color: $seconed-color;
+        }
+    }
+
+}
+
+@include tablets {
+    footer{
+        .footer-container{
+            padding: 0 1rem;
+        }
+    }
+}
+
+@include mobile{
+    footer{
+        .footer-container{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            h1{
+                text-align: center;
+            }
+        }
+    }
+}

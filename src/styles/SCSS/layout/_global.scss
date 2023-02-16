@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $main-color;
+}
+
+main {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+    margin-top: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88vh;
+}
+
+.about-me, .Projects , .contact , .landing{
+    padding-top: 2rem;
+}
+
+@include tablets{
+    .about-me, .Projects , .contact , .landing{
+        padding: 2rem 1rem;
+    }
+}
+
+@include mobile{
+    .about-me, .Projects , .contact , .landing{
+        padding: 0 1rem;
+        padding-top: 3rem;
+    }
+}
