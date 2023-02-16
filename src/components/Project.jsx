@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
-import Data from '../Data.json';
+import { useParams } from 'react-router-dom'
 import ImagesPrev from './ImagesPrev';
 import gitHubIcon from '../images/icons8-octocat-25.png';
 import { nanoid } from 'nanoid';
 
 function Project({projects}) {
-    // const project = Data.projects[0];
     const {projectId} = useParams();
     const [project , setProject] = useState({});
 
