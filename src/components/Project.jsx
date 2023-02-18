@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ImagesPrev from './ImagesPrev';
 import gitHubIcon from '../images/icons8-octocat-25.png';
 import { nanoid } from 'nanoid';
@@ -7,12 +7,19 @@ import { nanoid } from 'nanoid';
 function Project({projects}) {
     const {projectId} = useParams();
     const [project , setProject] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(projects.length > 0){
-            setProject(...projects.filter((proj) => {
+            const filterdPtoject = projects.filter((proj) => {
                 return proj.id === projectId
-            }))
+            })
+            if(filterdPtoject.length > 0){
+                setProject(...filterdPtoject)
+            }else{
+                navigate('/page-not-found-404')
+            }
+
         }
         
     },[projects , projectId])

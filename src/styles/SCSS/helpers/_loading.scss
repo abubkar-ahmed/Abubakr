@@ -14,6 +14,11 @@ $width: 40px;
     margin-left: auto;
     position: relative;
 }
+@include mobile{
+  .loading-container{
+    margin: auto;
+  }
+}
 
 .loader {
   position: relative;

@@ -9,6 +9,12 @@
 body{
     background-color: $main-color;
 }
+.App{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    min-height: 100vh;
+}
 
 main {
     width: 100%;
@@ -18,8 +24,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 88vh;
+    // background-color: blue;
 }
+
+@include tablets{
+    main{
+        min-height: 70vh;
+        
+    }
+}
+
 
 .about-me, .Projects , .contact , .landing{
     padding-top: 2rem;
@@ -35,5 +49,34 @@ main {
     .about-me, .Projects , .contact , .landing{
         padding: 0 1rem;
         padding-top: 3rem;
+    }
+}
+
+.not-found{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 10vh;
+    font-family: 'Roboto', sans-serif;
+    h2{
+        color: $thered-color;
+    }
+    button{
+        margin: auto;
+        font-size: 1.2rem;
+        color: $seconed-color;
+        border: 1px solid $seconed-color;
+        padding: 1rem 2rem;
+        display: block;
+        margin-top: 2rem;
+        transition: 0.7s all ease;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        width: max-content;
+        animation: opacity-fade 1s;
+        background-color: transparent;
+        &:hover {
+            background-color: #133040;
+        }
     }
 }

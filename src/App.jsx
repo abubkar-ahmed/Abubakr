@@ -9,6 +9,7 @@ import Project from './components/Project'
 import Projects from './components/Projects'
 import {db} from './firebase';
 import { collection, query, getDocs } from "firebase/firestore";
+import NotFound404 from './components/NotFound404'
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
               path='project/:projectId' 
               element={<Project projects={projects}/>}
             />
+            <Route path='/*' element={<NotFound404/>}/>
           </Routes>
         </main>
 

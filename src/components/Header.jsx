@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { useNavigate, NavLink} from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate, NavLink, useLocation} from 'react-router-dom';
 
 
 function Header() {
@@ -9,6 +9,8 @@ function Header() {
   const ulRef = useRef(null);
 
   const navigate = useNavigate();
+
+  const { pathname } = useLocation();
 
   const showNavbar = () => {
     if(menu){
@@ -33,6 +35,18 @@ function Header() {
   const h1ClickHandler = () => {
     navigate('/')
   }
+
+  useEffect(() => {
+    if(menu){
+        ulRef.current.classList.add('remove-animation');
+        setTimeout(() => {
+            setMenu( prevMenu => {
+                return !prevMenu ;
+            })
+            navRef.current.classList.toggle('nav-responsive');
+        },200);
+    }
+  },[pathname])
 
 
   return (

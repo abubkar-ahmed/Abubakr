@@ -160,7 +160,6 @@
 
 @include tablets{
     .contact{
-        // padding: 0 1rem;
         .main-container{
             .seconed-container{
                 .contact-container{
@@ -190,9 +189,11 @@
             .seconed-container{
                 .contact-container{
                     min-width: fit-content;
+                    
                 }
                 form{
                     padding: 0;
+                    padding-bottom: 2rem;
                     .name , .email{
                         width: 100%;
                     }
