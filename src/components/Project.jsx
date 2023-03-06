@@ -49,6 +49,9 @@ function Project({projects}) {
             <div className="link info">
                 <h3>Live Site</h3>
                 <p>Here is a link to {project.title}: <a href={project.url} target='_blank' rel='noopner noreferrer'>{project.title}</a></p>
+                <p className='render-limitation'>
+                Please note that due to the limitations of the free hosting service used, it might take up to 30 seconds to fully load the first time. I apologize for any inconvenience this may cause and appreciate your patience. Thank you!
+                </p>
                 
             </div>
     

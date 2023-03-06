@@ -629,6 +629,10 @@ header .header-container .nav ul li:hover {
   width: 20px;
   height: 20px;
 }
+.project .link .render-limitation {
+  font-size: 16px;
+  margin-top: 1rem;
+}
 .project .link a {
   display: block;
 }
@@ -669,6 +673,10 @@ header .header-container .nav ul li:hover {
   }
   .project .info p, .project .info h4, .project .note p, .project .note h4 {
     font-size: 1.1rem;
+  }
+  .project .info .render-limitation, .project .note .render-limitation {
+    font-size: 16px;
+    line-height: 23px;
   }
   .slider-container {
     width: 90%;

@@ -67,6 +67,10 @@
         }
     }
     .link{
+        .render-limitation{
+            font-size: 16px;
+            margin-top: 1rem;
+        }
         a{
             display: block;
         }
@@ -120,6 +124,10 @@
         .info , .note{
             p , h4{
                 font-size: 1.1rem;
+            }
+            .render-limitation{
+                font-size: 16px;
+                line-height: 23px;
             }
         }
     }
