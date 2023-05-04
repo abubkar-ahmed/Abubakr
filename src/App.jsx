@@ -1,29 +1,23 @@
 import { useEffect, useState} from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import AboutMe from './components/AboutMe'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Landing from './components/Landing'
-import Project from './components/Project'
-import Projects from './components/Projects'
 import {db} from './firebase';
 import { collection, query, getDocs } from "firebase/firestore";
-import NotFound404 from './components/NotFound404'
+import { SideBar } from './components/nav/SideBar'
+import { Heading } from './components/nav/Heading'
+import { Hero } from './components/hero/Hero';
+import { About } from './components/about/About'
+import { Projects } from './components/projects/Projects';
+import { Contact } from './components/contact/Contact';
+
 
 
 function App() {
 
-  const { pathname } = useLocation();
   const [projects , setProjects] = useState([]);
+  const [filesLinks , setFilesLinks] = useState({});
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-
-  useEffect(() => {
-    getAllProjects()
+    getAllProjects();
+    getAllfiles();
   },[])
 
   const getAllProjects = async () => {
@@ -39,30 +33,40 @@ function App() {
       })
     });
   }
+  const getAllfiles = async () => {
+    const q = query(collection(db, "files"));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      setFilesLinks(prev => {
+        return {...prev , resume : doc.data().resume}
+      })
+    });
+  }
+
+  
   
   return (
     <>
     {projects.length > 0 && (
       <div className="App">
-        <Header/>
-        <main>
-          <Routes>
-            <Route path='/' element={<Landing/>} />
-            <Route path='/about' element={<AboutMe/>} />
-            <Route 
-              path='/projects' 
-              element={<Projects projects={projects}/>} 
+        <div className="home">
+          <SideBar/>
+          <main>
+            <Heading resume={filesLinks?.resume}/>
+            <Hero/>
+            <About/>
+            <Projects projects={projects}/>
+            <Contact/>
+            <div
+            style={{
+              height: "200px",
+              background:
+                "linear-gradient(180deg, var(--background), var(--background-dark))",
+            }}
             />
-            <Route path='/contact' element={<Contact/>} />
-            <Route 
-              path='project/:projectId' 
-              element={<Project projects={projects}/>}
-            />
-            <Route path='/*' element={<NotFound404/>}/>
-          </Routes>
-        </main>
-
-        <Footer/>
+          </main>
+        </div>
       </div>
     )}
     </>
