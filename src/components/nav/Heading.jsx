@@ -1,6 +1,6 @@
 import './heading.scss';
 import { MyLinks } from "./components/MyLinks";
-import { OutlineButton } from "../buttons/OutLineButton";
+import { OutlineButton } from "../buttons/OutlineButton";
 
 export const Heading = ({resume}) => {
   return (

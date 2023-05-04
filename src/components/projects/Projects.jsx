@@ -3,7 +3,6 @@ import { Project } from "./Project";
 import styles from "./projects.module.scss";
 
 export const Projects = ({projects}) => {
-    console.log(projects)
   return (
     <section className="section-wrapper" id="projects">
       <SectionHeader title="Projects" dir="r" />
