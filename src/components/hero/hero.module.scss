@@ -24,7 +24,7 @@
     }
   
     @media (max-width: 768px) {
-      font-size: var(--text-l);
+      font-size: var(--text-sm);
     }
 }
   
@@ -33,10 +33,13 @@
     line-height: 1.1;
     margin-top: 1.6rem;
     font-weight: 200;
-  
     span {
       font-weight: bold;
       color: var(--brand);
+    }
+    @media (max-width:768px) {
+      font-size: calc(var(--text-md) + 1.3rem);
+
     }
 }
   

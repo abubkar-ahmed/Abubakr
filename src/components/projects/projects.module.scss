@@ -45,6 +45,10 @@
       flex-shrink: 0;
   
       max-width: calc(100% - 150px);
+      @media (max-width:768px) {
+        font-size: var(--text-sm);
+        max-width: calc(100% - 100px);
+      }
     }
   
     a {
